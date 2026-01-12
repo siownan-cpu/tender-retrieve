@@ -9,26 +9,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from util.driver_setup import get_chrome_driver
 
-def setup_driver(headless=True):
-    options = Options()
-    if headless:
-        options.add_argument('--headless=new')
-        options.add_argument('--disable-gpu')
-    
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--window-size=1920,1080')
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
-    options.add_argument('--log-level=3')
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    
-    return webdriver.Chrome(options=options)
+
 
 class AribaScraper:
     def __init__(self, headless=True):
-        self.driver = setup_driver(headless)
+        self.driver = get_chrome_driver(headless)
         self.wait = WebDriverWait(self.driver, 15)
         self.base_url = 'https://portal.us.bn.cloud.ariba.com/dashboard/public/appext/comsapsbncdiscoveryui#/leads/search?anId=ANONYMOUS'
 

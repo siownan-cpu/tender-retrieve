@@ -10,20 +10,10 @@ from selenium.webdriver.support.ui import Select
 from dateutil import parser
 import pytz
 
-def setup_driver(headless=True):
-    from selenium.webdriver.chrome.options import Options
+from util.driver_setup import get_chrome_driver
 
-    options = Options()
-    if headless:
-        options.add_argument('--headless=new')
-    options.add_argument('--window-size=1920,1080')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
-    
-    driver = webdriver.Chrome(options=options)
-    return driver
+def setup_driver(headless=True):
+    return get_chrome_driver(headless)
 
 def parse_sesami_date(date_str):
     """

@@ -12,31 +12,11 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementClickInterceptedException
 
+from util.driver_setup import get_chrome_driver
 class GeBizClient:
     def setup_driver(self, headless=True):
         """Setup Chrome WebDriver with options"""
-        options = Options()
-        
-        if headless:
-            options.add_argument('--headless=new')
-            options.add_argument('--disable-gpu')
-        
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
-        options.add_argument('--window-size=1920,1080')
-        options.add_argument('--disable-blink-features=AutomationControlled')
-        options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
-        
-        # Suppress logging
-        options.add_argument('--log-level=3')
-        options.add_experimental_option('excludeSwitches', ['enable-logging'])
-        
-        try:
-            driver = webdriver.Chrome(options=options)
-            return driver
-        except Exception as e:
-            print(f"Error initializing Chrome Driver: {e}")
-            raise
+        return get_chrome_driver(headless)
 
     def get_text_safe(self, element):
         try:
