@@ -2,7 +2,7 @@ import os
 import json
 import time
 from datetime import datetime, timedelta
-from flask import Flask, render_template_string, request, send_file, jsonify
+from flask import Flask, render_template_string, request, send_file, jsonify, redirect, url_for
 from dotenv import load_dotenv
 
 from collector.rss_client import fetch_feeds, load_feeds_config
@@ -30,8 +30,10 @@ def index():
     feeds = load_feeds_config()
     return render_template_string(TEMPLATE, feeds=feeds, count=None, ts=None, download_ready=False)
 
-@app.route('/fetch', methods=['POST'])
+@app.route('/fetch', methods=['GET', 'POST'])
 def fetch():
+    if request.method == 'GET':
+        return redirect(url_for('index'))
     selected_urls = request.form.getlist('feed_url')
     use_html = request.form.get('use_html') == '1'
     use_ariba = request.form.get('use_ariba') == '1'
