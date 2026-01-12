@@ -21,4 +21,4 @@ EXPOSE 8000
 
 # Use Gunicorn for production
 # Timeout set to 120s because scraping can be slow
-CMD ["gunicorn", "app_enhanced:app", "--bind", "0.0.0.0:8000", "--timeout", "600"]
+CMD ["gunicorn", "app_enhanced:app", "--bind", "0.0.0.0:8000", "--timeout", "1200"]
