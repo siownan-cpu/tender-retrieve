@@ -1,0 +1,525 @@
+"""
+SAP Ariba Automated Client - Selenium-based (FIXED VERSION)
+
+Automatically fetches procurement opportunities from SAP Ariba public portal
+No manual intervention required - runs in background
+"""
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+# from webdriver_manager.chrome import ChromeDriverManager # Removed to fix WinError 193
+import time
+import re
+from datetime import datetime
+
+ARIBA_URL = 'https://portal.us.bn.cloud.ariba.com/dashboard/public/appext/comsapsbncdiscoveryui#/leads/search?anId=ANONYMOUS'
+
+def setup_driver(headless=True):
+    """Setup Chrome WebDriver with options using webdriver-manager"""
+    options = Options()
+    
+    if headless:
+        options.add_argument('--headless=new')  # Updated headless mode
+        options.add_argument('--disable-gpu')
+    
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--window-size=1920,1080')
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+    
+    # Suppress logging
+    options.add_argument('--log-level=3')
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    
+    try:
+        # Use Native Selenium Manager (Fixes WinError 193)
+        driver = webdriver.Chrome(options=options)
+        return driver
+    except Exception as e:
+        print(f"\n[!] ChromeDriver error: {e}")
+        print("\n[i] Troubleshooting:")
+        print("   1. Ensure Chrome browser is installed")
+        print("   2. Try: pip install --upgrade selenium")
+        raise
+
+def extract_opportunities(driver, wait):
+    """Extract opportunity data from the page"""
+    opportunities = []
+    
+    try:
+        print("  Waiting for results to load...")
+        
+        # Wait for content to load
+        time.sleep(8)
+        
+        # Try multiple selectors for list items
+        selectors = [
+            '.sapMLIB',
+            'div[role="listitem"]',
+            'li[class*="sapMListTblRow"]',
+            'tr[class*="sapMListTblRow"]',
+            'div[class*="sapMListTblRow"]',
+            '.sapMListTblRow',
+            'li[id*="idLeadsSearchList"]',
+            'li[id*="__item"]'
+        ]
+        
+        items = []
+        for selector in selectors:
+            items = driver.find_elements(By.CSS_SELECTOR, selector)
+            if items:
+                print(f"  ✓ Found {len(items)} items using selector: {selector}")
+                break
+        
+        if not items:
+            print("  ⚠ No items found with standard selectors.")
+            return []
+        
+        # Extract data from items
+        print(f"  Extracting data from items...")
+        
+        i = 0
+        while i < len(items):
+            try:
+                # Re-acquire items to avoid Stale Element Reference
+                current_items = []
+                for selector in selectors:
+                    current_items = driver.find_elements(By.CSS_SELECTOR, selector)
+                    if current_items: 
+                        break
+                
+                if i >= len(current_items):
+                    break
+                
+                item = current_items[i]
+                
+                # Initialize item dict
+                item_dict = {
+                    'source': 'ariba',
+                    'title': '',
+                    'link': ARIBA_URL,
+                    'summary': '',
+                    'published': '',
+                    'category': '',
+                    'organization': '',
+                    'feed_url': ARIBA_URL,
+                    'platform': 'SAP Ariba'
+                }
+
+                # Find title/link
+                title_elem = None
+                try:
+                    title_elem = item.find_element(By.CSS_SELECTOR, '.sapMObjectIdentifierTitle .sapMLnk, a.sapMLnk, a[id*="title"]')
+                except:
+                    links = item.find_elements(By.TAG_NAME, 'a')
+                    if links: 
+                        title_elem = links[0]
+                
+                if not title_elem:
+                    i += 1
+                    continue
+
+                title = title_elem.text.strip()
+                # Sanitize for console safety
+                title = title.encode('ascii', 'ignore').decode('ascii')
+                item_dict['title'] = title
+                
+                # Skip mock/test data
+                if 'Mock' in title or re.match(r'^Event \d', title):
+                    print(f"    - Skipped mock item: {title[:30]}")
+                    i += 1
+                    continue
+                
+                # Get Description
+                try:
+                    desc_elem = item.find_element(By.CSS_SELECTOR, '.sapMObjectIdentifierText, .sapMText')
+                    text = desc_elem.text.strip()
+                    item_dict['summary'] = text.encode('ascii', 'ignore').decode('ascii')
+                except: 
+                    pass
+
+                # Deep scrape (Click -> Scrape -> Back)
+                try:
+                    # Click to open details
+                    try:
+                        title_elem.click()
+                    except:
+                        driver.execute_script("arguments[0].click();", title_elem)
+                    
+                    time.sleep(3)
+                    
+                    # Scrape details from the page
+                    try:
+                        # Get actual URL
+                        real_url = driver.current_url
+                        if "RfxEvent" in real_url: 
+                            item_dict['link'] = real_url
+                        
+                        # Get page text
+                        body_text = driver.find_element(By.TAG_NAME, "body").text
+                        
+                        # Extract closing date
+                        match = re.search(r'Respond By[\s\n]+(\d{1,2}\s+[A-Za-z]{3}\s+\d{4}(?:\s+\d{1,2}:\d{2})?)', body_text)
+                        if match:
+                            closing_dt_text = match.group(1)
+                            item_dict['published'] = f"Closing: {closing_dt_text}" 
+                            item_dict['summary'] += f" | Closing Date: {closing_dt_text}"
+                            
+                        # Extract amount
+                        match_amt = re.search(r'Opportunity Amount[\s\n]+([A-Z]{3}\s+[0-9,.]+)', body_text)
+                        if not match_amt: 
+                            match_amt = re.search(r'Opportunity Amount[\s\n]+([0-9,.]+\s+[A-Z]{3})', body_text)
+                        if match_amt: 
+                            item_dict['opportunity_amount'] = match_amt.group(1).strip()
+                            
+                    except Exception as scrape_err:
+                        print(f"      ~ Detail scrape warning: {scrape_err}")
+
+                    # Navigate back
+                    driver.back()
+                    time.sleep(3)
+                    
+                    # Re-assert search state
+                    try:
+                        search_input = driver.find_element(By.CSS_SELECTOR, "input[aria-label='Search']")
+                        val = search_input.get_attribute("value")
+                        if not val or "Singapore" not in val:
+                            print("      Search context lost. Re-applying 'Singapore'...")
+                            search_input.clear()
+                            search_input.send_keys("Singapore")
+                            search_input.send_keys(Keys.ENTER)
+                            time.sleep(4)
+                    except:
+                        pass
+
+                except Exception as nav_err:
+                    print(f"      ~ Navigation error: {nav_err}")
+                
+                opportunities.append(item_dict)
+                print(f"    {i+1}. Captured: {title[:40]}...")
+                
+                i += 1
+                
+            except Exception as e:
+                print(f"    [!] Error on item {i+1}: {e}")
+                i += 1
+                if i > 50: 
+                    break
+        
+        print(f"  [OK] Extracted {len(opportunities)} opportunities")
+        return opportunities
+        
+    except Exception as e:
+        print(f"  [X] Error during extraction: {e}")
+        return []
+
+
+def apply_date_filter(driver, wait, mode, start_date=None, end_date=None):
+    """Apply date filter to Ariba search results"""
+    try:
+        print(f"[Date] Applying date filter: {mode}...")
+        
+        # Helper to click via JS
+        def js_click(element):
+            driver.execute_script("arguments[0].click();", element)
+
+        # Find and open date dropdown
+        date_dropdown = None
+        try:
+            print("  Looking for Date Filter dropdown...")
+            wait.until(EC.presence_of_element_located((By.CLASS_NAME, "sapMSlt")))
+            
+            dropdowns = driver.find_elements(By.CLASS_NAME, "sapMSlt")
+            
+            for dd in dropdowns:
+                try:
+                    # Check aria-labelledby
+                    label_id = dd.get_attribute("aria-labelledby")
+                    if label_id:
+                        label_elem = driver.find_element(By.ID, label_id)
+                        if "Date Posted" in label_elem.text:
+                            date_dropdown = dd
+                            break
+                    
+                    # Check preceding sibling label
+                    preceding = dd.find_elements(By.XPATH, "./preceding-sibling::label")
+                    if preceding and "Date Posted" in preceding[-1].text:
+                        date_dropdown = dd
+                        break
+                except:
+                    continue
+            
+            if not date_dropdown:
+                # Fallback: XPath search
+                print("  Fallback: using XPath for Date Posted label")
+                label_xpath = "//label[contains(., 'Date Posted')]"
+                label = wait.until(EC.presence_of_element_located((By.XPATH, label_xpath)))
+                date_dropdown = label.find_element(By.XPATH, "./following::div[contains(@class, 'sapMSlt')][1]")
+
+            # Scroll into view and click
+            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", date_dropdown)
+            time.sleep(1)
+            try:
+                date_dropdown.click()
+            except:
+                js_click(date_dropdown)
+            time.sleep(2)
+            
+        except Exception as e:
+            print(f"  [!] Could not find Date Filter dropdown: {e}")
+            try:
+                driver.save_screenshot("ariba_debug_filter_fail.png")
+                print("  Saved screenshot to ariba_debug_filter_fail.png")
+            except:
+                pass
+            return
+
+        # Determine target option
+        mode_map = {
+            'today': "Last 24 hours",
+            'last_7_days': "Last 7 days",
+            'last_14_days': "Last 14 days",
+            'last_31_days': "Last 31 days",
+            'last_90_days': "Last 90 days",
+            'last_365_days': "Last 365 days"
+        }
+        
+        # Map last_working_day to Last 7 days for stability
+        if mode == 'last_working_day':
+            mode = 'last_7_days'
+        
+        target_text = mode_map.get(mode, "Last 24 hours")
+        
+        if mode == 'custom' and start_date and end_date:
+            target_text = "Custom date range"
+        
+        # Select option
+        try:
+            option_xpath = f"//li[text()='{target_text}'] | //div[text()='{target_text}'] | //li//div[text()='{target_text}'] | //li[contains(text(), '{target_text}')]"
+            
+            options_found = driver.find_elements(By.XPATH, option_xpath)
+            date_option = None
+            
+            for opt in options_found:
+                if opt.is_displayed():
+                    date_option = opt
+                    break
+            
+            if not date_option and options_found:
+                date_option = options_found[0]
+            
+            if date_option:
+                try:
+                    date_option.click()
+                except:
+                    js_click(date_option)
+                
+                print(f"  Clicked '{target_text}'. Waiting for table update...")
+                time.sleep(5)
+            else:
+                print(f"  [!] Could not find visible option for '{target_text}'")
+
+        except Exception as e:
+            print(f"  [!] Error clicking option: {e}")
+            
+        # Handle custom date range
+        if mode == 'custom' and start_date and end_date:
+            print(f"  Setting custom range: {start_date} to {end_date}")
+            
+            try:
+                # Convert YYYY-MM-DD to MM/dd/yyyy
+                def fmt(d_str):
+                    d = datetime.strptime(d_str, '%Y-%m-%d')
+                    return d.strftime('%m/%d/%Y')
+                
+                s_str = fmt(start_date)
+                e_str = fmt(end_date)
+                range_str = f"{s_str} - {e_str}"
+                
+                # Find input field
+                range_input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[id$="idPostedDateRangeSelection-inner"]')))
+                
+                # Set value using JS
+                driver.execute_script(f"""
+                    var input = arguments[0];
+                    input.focus();
+                    input.value = '{range_str}';
+                    input.dispatchEvent(new Event('input', {{ bubbles: true }}));
+                    input.dispatchEvent(new Event('change', {{ bubbles: true }}));
+                """, range_input)
+                
+                # Close popup
+                driver.find_element(By.TAG_NAME, "body").click()
+                time.sleep(1)
+                
+                # Submit
+                ActionChains(driver)\
+                    .send_keys(Keys.TAB)\
+                    .pause(1)\
+                    .send_keys(Keys.ENTER)\
+                    .perform()
+                    
+                time.sleep(2)
+                
+            except Exception as e:
+                print(f"  [!] Error setting custom date range: {e}")
+                
+        print("  Date filter applied. Waiting for reload...")
+        time.sleep(5)
+            
+    except Exception as e:
+        print(f"  [!] Warning: Could not apply date filter: {e}")
+
+def fetch_ariba_opportunities(headless=True, date_mode='today', date_start=None, date_end=None):
+    """
+    Main function to fetch SAP Ariba opportunities
+    """
+    print("\n" + "="*80)
+    print("SAP ARIBA AUTOMATED FETCHING")
+    print("="*80)
+    print(f"URL: {ARIBA_URL}")
+    print(f"Location: Singapore")
+    print(f"Date Mode: {date_mode}")
+    print(f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("="*80 + "\n")
+    
+    driver = None
+    opportunities = []
+    
+    try:
+        # Setup driver
+        print("[Browser] Starting Chrome browser...")
+        driver = setup_driver(headless=headless)
+        wait = WebDriverWait(driver, 15)
+        
+        # Navigate to Ariba portal
+        print(f"[Wait] Loading Ariba portal...")
+        driver.get(ARIBA_URL)
+        
+        # Wait for initial page load
+        print("[Wait] Waiting for page to load...")
+        time.sleep(5)
+        
+        try:
+            # Search for "Singapore"
+            print("[Search] Searching for 'Singapore'...")
+            search_input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-label='Search']")))
+            
+            try:
+                search_input.clear()
+            except:
+                pass
+            
+            search_input.send_keys("Singapore")
+            time.sleep(1)
+            search_input.send_keys(Keys.ENTER)
+            
+            print("  Search submitted. Waiting for results...")
+            time.sleep(5)
+            
+        except Exception as e:
+            print(f"  [!] Warning: Could not perform search for 'Singapore': {e}")
+            print("  [STOP] Aborting fetch to prevent non-Singapore items.")
+            return []
+
+        # Apply date filter
+        if date_mode != 'all':
+            apply_date_filter(driver, wait, date_mode, date_start, date_end)
+        
+        # Pagination loop
+        max_pages = 5
+        total_extracted = 0
+        
+        for page in range(1, max_pages + 1):
+            print(f"\n[Page] Processing Page {page}...")
+            
+            # Verify search context
+            try:
+                search_input = driver.find_element(By.CSS_SELECTOR, "input[aria-label='Search']")
+                current_search = search_input.get_attribute("value")
+                if "Singapore" not in current_search:
+                    print(f"  [!] Alert: Search context lost. Aborting.")
+                    break
+            except:
+                print("  [!] Alert: Search input not found. Aborting.")
+                break
+
+            # Extract opportunities
+            page_opportunities = extract_opportunities(driver, wait)
+            if page_opportunities:
+                opportunities.extend(page_opportunities)
+                total_extracted += len(page_opportunities)
+                print(f"  + Added {len(page_opportunities)} items (Total: {total_extracted})")
+            
+            # Check for next button
+            try:
+                next_btn = driver.find_elements(By.CSS_SELECTOR, 'button[title*="arrow-right"], button[aria-label*="arrow-right"]')
+                
+                if next_btn and next_btn[0].is_enabled():
+                    if "sapMBtnDisabled" in next_btn[0].get_attribute("class"):
+                        print("  Reached last page (button disabled).")
+                        break
+                        
+                    print("  -> Navigating to next page...")
+                    next_btn[0].click()
+                    time.sleep(5)
+                else:
+                    print("  Reached last page (no next button).")
+                    break
+            except Exception as e:
+                print(f"  [!] Pagination error: {e}")
+                break
+        
+        # Summary
+        print("\n" + "="*80)
+        print("ARIBA FETCH SUMMARY")
+        print("="*80)
+        print(f"Total opportunities extracted: {len(opportunities)}")
+        print("="*80 + "\n")
+        
+    except Exception as e:
+        print(f"\n[ERROR] Error during Ariba fetch: {e}")
+        print("Stack trace:")
+        import traceback
+        traceback.print_exc()
+        
+    finally:
+        if driver:
+            driver.quit()
+            print("[OK] Browser closed\n")
+    
+    return opportunities
+
+# For testing
+if __name__ == '__main__':
+    print("Testing SAP Ariba automated fetching...")
+    print("\nNote: This requires ChromeDriver to be installed")
+    print("Install: pip install selenium webdriver-manager\n")
+    
+    try:
+        # Test with visible browser
+        opportunities = fetch_ariba_opportunities(headless=False)
+        
+        if opportunities:
+            print(f"\n✅ Successfully extracted {len(opportunities)} opportunities")
+            print("\nFirst 3 opportunities:")
+            for opp in opportunities[:3]:
+                print(f"\n{opp['title'][:80]}...")
+                print(f"  Link: {opp['link']}")
+                if opp.get('organization'):
+                    print(f"  Organization: {opp['organization']}")
+        else:
+            print("\n⚠ No opportunities extracted")
+            print("This may be normal if there are no current opportunities")
+            
+    except Exception as e:
+        print(f"\n❌ Test failed: {e}")
+        print("\nPlease install dependencies:")
+        print("  pip install selenium webdriver-manager")

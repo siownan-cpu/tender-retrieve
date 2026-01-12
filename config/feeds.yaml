@@ -1,0 +1,298 @@
+feeds:
+  1. Others:
+    a. Others:
+      bo: https://www.gebiz.gov.sg/rss/OthersOthers-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/OthersOthers-CREATE_AWD_FEED.xml
+  2. Services:
+    a. Advertising Services:
+      bo: https://www.gebiz.gov.sg/rss/Advertising_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Advertising_Services-CREATE_AWD_FEED.xml
+    b. Childcare Services:
+      bo: https://www.gebiz.gov.sg/rss/Childcare_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Childcare_Services-CREATE_AWD_FEED.xml
+    c. Data Entry, Supply of Manpower Services:
+      bo: https://www.gebiz.gov.sg/rss/Data_Entry,_Supply_of_Manpower_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Data_Entry,_Supply_of_Manpower_Services-CREATE_AWD_FEED.xml
+    d. Disposal and Management of Waste Chemicals:
+      bo: https://www.gebiz.gov.sg/rss/Disposal_and_Management_of_Waste_Chemicals-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Disposal_and_Management_of_Waste_Chemicals-CREATE_AWD_FEED.xml
+    e. Grooming Services:
+      bo: https://www.gebiz.gov.sg/rss/Grooming_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Grooming_Services-CREATE_AWD_FEED.xml
+    f. Laundry Services:
+      bo: https://www.gebiz.gov.sg/rss/Laundry_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Laundry_Services-CREATE_AWD_FEED.xml
+    g. Public Relations & Counselling:
+      bo: https://www.gebiz.gov.sg/rss/Public_Relations_&_Counselling-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Public_Relations_&_Counselling-CREATE_AWD_FEED.xml
+    h. Storage Services:
+      bo: https://www.gebiz.gov.sg/rss/Storage_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Storage_Services-CREATE_AWD_FEED.xml
+    i. Tailoring:
+      bo: https://www.gebiz.gov.sg/rss/Tailoring-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Tailoring-CREATE_AWD_FEED.xml
+    j. Undertaker Services:
+      bo: https://www.gebiz.gov.sg/rss/Undertaker_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Undertaker_Services-CREATE_AWD_FEED.xml
+    k. Professional Services:
+      bo: https://www.gebiz.gov.sg/rss/Professional_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Professional_Services-CREATE_AWD_FEED.xml
+  3. Construction:
+    a. General Building & Minor Construction Works:
+      bo: https://www.gebiz.gov.sg/rss/General_Building_&_Minor_Construction_Works-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/General_Building_&_Minor_Construction_Works-CREATE_AWD_FEED.xml
+    b. Civil Engineering:
+      bo: https://www.gebiz.gov.sg/rss/Civil_Engineering-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Civil_Engineering-CREATE_AWD_FEED.xml
+    c. Corrosion Protection:
+      bo: https://www.gebiz.gov.sg/rss/Corrosion_Protection-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Corrosion_Protection-CREATE_AWD_FEED.xml
+    d. Demolition:
+      bo: https://www.gebiz.gov.sg/rss/Demolition-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Demolition-CREATE_AWD_FEED.xml
+    e. Fencing & Ironworks:
+      bo: https://www.gebiz.gov.sg/rss/Fencing_&_Ironworks-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Fencing_&_Ironworks-CREATE_AWD_FEED.xml
+    f. Concrete Products & Repairs:
+      bo: https://www.gebiz.gov.sg/rss/Concrete_Products_&_Repairs-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Concrete_Products_&_Repairs-CREATE_AWD_FEED.xml
+    g. Interior Decoration:
+      bo: https://www.gebiz.gov.sg/rss/Interior_Decoration-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Interior_Decoration-CREATE_AWD_FEED.xml
+    h. Pipe or Cable Laying & Road Reinstatement:
+      bo: https://www.gebiz.gov.sg/rss/Pipe_or_Cable_Laying_&_Road_Reinstatement-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Pipe_or_Cable_Laying_&_Road_Reinstatement-CREATE_AWD_FEED.xml
+    i. Piling:
+      bo: https://www.gebiz.gov.sg/rss/Piling-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Piling-CREATE_AWD_FEED.xml
+    j. Repairs & Redecoration:
+      bo: https://www.gebiz.gov.sg/rss/Repairs_&_Redecoration-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Repairs_&_Redecoration-CREATE_AWD_FEED.xml
+    k. Signages:
+      bo: https://www.gebiz.gov.sg/rss/Signages-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Signages-CREATE_AWD_FEED.xml
+    l. Soil Investigation & Stabilization:
+      bo: https://www.gebiz.gov.sg/rss/Soil_Investigation_&_Stabilization-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Soil_Investigation_&_Stabilization-CREATE_AWD_FEED.xml
+    m. Asphalt Works & Road Marking:
+      bo: https://www.gebiz.gov.sg/rss/Asphalt_Works_&_Road_Marking-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Asphalt_Works_&_Road_Marking-CREATE_AWD_FEED.xml
+    n. Renovation Supplies & Services:
+      bo: https://www.gebiz.gov.sg/rss/Renovation_Supplies_&_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Renovation_Supplies_&_Services-CREATE_AWD_FEED.xml
+    o. Others:
+      bo: https://www.gebiz.gov.sg/rss/OthersConstruction-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/OthersConstruction-CREATE_AWD_FEED.xml
+  4. Miscellaneous:
+    a. Disposal Management:
+      bo: https://www.gebiz.gov.sg/rss/Disposal_Management-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Disposal_Management-CREATE_AWD_FEED.xml
+    b. Safety & Rescue Equipment:
+      bo: https://www.gebiz.gov.sg/rss/Safety_&_Rescue_Equipment-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Safety_&_Rescue_Equipment-CREATE_AWD_FEED.xml
+    c. Others:
+      bo: https://www.gebiz.gov.sg/rss/OthersMiscellaneous-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/OthersMiscellaneous-CREATE_AWD_FEED.xml
+  5. Transportation:
+    a. Moving Services:
+      bo: https://www.gebiz.gov.sg/rss/Moving_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Moving_Services-CREATE_AWD_FEED.xml
+    b. Bus Hire:
+      bo: https://www.gebiz.gov.sg/rss/Bus_Hire-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Bus_Hire-CREATE_AWD_FEED.xml
+    c. Car Rental:
+      bo: https://www.gebiz.gov.sg/rss/Car_Rental-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Car_Rental-CREATE_AWD_FEED.xml
+    d. Other Vehicle Rental:
+      bo: https://www.gebiz.gov.sg/rss/Other_Vehicle_Rental-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Other_Vehicle_Rental-CREATE_AWD_FEED.xml
+    e. Ticketing, Travel Services, Tours & Excursions:
+      bo: https://www.gebiz.gov.sg/rss/Ticketing,_Travel_Services,_Tours__&_Excursions-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Ticketing,_Travel_Services,_Tours__&_Excursions-CREATE_AWD_FEED.xml
+    f. Petroleum, Oil & Lubricants:
+      bo: https://www.gebiz.gov.sg/rss/Petroleum,_Oil_&_Lubricants-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Petroleum,_Oil_&_Lubricants-CREATE_AWD_FEED.xml
+    g. Vehicle Maintenance:
+      bo: https://www.gebiz.gov.sg/rss/Vehicle_Maintenance-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Vehicle_Maintenance-CREATE_AWD_FEED.xml
+    h. ShipBuilding, Marine Supplies & Services:
+      bo: https://www.gebiz.gov.sg/rss/ShipBuilding,_Marine_Supplies_&_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/ShipBuilding,_Marine_Supplies_&_Services-CREATE_AWD_FEED.xml
+    i. Others:
+      bo: https://www.gebiz.gov.sg/rss/OthersTransportation-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/OthersTransportation-CREATE_AWD_FEED.xml
+  6. Administration & Training:
+    a. Gifts & Souvenirs:
+      bo: https://www.gebiz.gov.sg/rss/Gifts_&_Souvenirs-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Gifts_&_Souvenirs-CREATE_AWD_FEED.xml
+    b. Photographic & Imaging Services:
+      bo: https://www.gebiz.gov.sg/rss/Photographic_&_Imaging_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Photographic_&_Imaging_Services-CREATE_AWD_FEED.xml
+    c. Postage & Courier:
+      bo: https://www.gebiz.gov.sg/rss/Postage_&_Courier-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Postage_&_Courier-CREATE_AWD_FEED.xml
+    d. Medals & Trophies:
+      bo: https://www.gebiz.gov.sg/rss/Medals_&_Trophies-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Medals_&_Trophies-CREATE_AWD_FEED.xml
+    e. Sports & Recreational Equipment:
+      bo: https://www.gebiz.gov.sg/rss/Sports_&_Recreational_Equipment-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Sports_&_Recreational_Equipment-CREATE_AWD_FEED.xml
+    f. Publications & Periodicals:
+      bo: https://www.gebiz.gov.sg/rss/Publications_&_Periodicals-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Publications_&_Periodicals-CREATE_AWD_FEED.xml
+    g. Educational Supplies:
+      bo: https://www.gebiz.gov.sg/rss/Educational_Supplies-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Educational_Supplies-CREATE_AWD_FEED.xml
+    h. Art Supplies:
+      bo: https://www.gebiz.gov.sg/rss/Art_Supplies-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Art_Supplies-CREATE_AWD_FEED.xml
+    i. Music & Video:
+      bo: https://www.gebiz.gov.sg/rss/Music_&_Video-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Music_&_Video-CREATE_AWD_FEED.xml
+    j. Printing Services:
+      bo: https://www.gebiz.gov.sg/rss/Printing_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Printing_Services-CREATE_AWD_FEED.xml
+    k. Courses:
+      bo: https://www.gebiz.gov.sg/rss/Courses-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Courses-CREATE_AWD_FEED.xml
+    l. Survey Services:
+      bo: https://www.gebiz.gov.sg/rss/Survey_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Survey_Services-CREATE_AWD_FEED.xml
+    m. Office Supplies & Stationery:
+      bo: https://www.gebiz.gov.sg/rss/Office_Supplies_&_Stationery-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Office_Supplies_&_Stationery-CREATE_AWD_FEED.xml
+    n. Toners & Cartridges:
+      bo: https://www.gebiz.gov.sg/rss/Toners_&_Cartridges-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Toners_&_Cartridges-CREATE_AWD_FEED.xml
+    o. Paper:
+      bo: https://www.gebiz.gov.sg/rss/Paper-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Paper-CREATE_AWD_FEED.xml
+  7. IT&Telecommunication:
+    a. Telecommunication Devices:
+      bo: https://www.gebiz.gov.sg/rss/Telecommunication_Devices-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Telecommunication_Devices-CREATE_AWD_FEED.xml
+    b. Desktop Computers:
+      bo: https://www.gebiz.gov.sg/rss/Desktop_Computers-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Desktop_Computers-CREATE_AWD_FEED.xml
+    c. Servers:
+      bo: https://www.gebiz.gov.sg/rss/Servers-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Servers-CREATE_AWD_FEED.xml
+    d. Notebooks:
+      bo: https://www.gebiz.gov.sg/rss/Notebooks-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Notebooks-CREATE_AWD_FEED.xml
+    e. Storage Devices & Drives:
+      bo: https://www.gebiz.gov.sg/rss/Storage_Devices_&_Drives-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Storage_Devices_&_Drives-CREATE_AWD_FEED.xml
+    f. Computer Accessories:
+      bo: https://www.gebiz.gov.sg/rss/Computer_Accessories-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Computer_Accessories-CREATE_AWD_FEED.xml
+    g. Printers & Scanners:
+      bo: https://www.gebiz.gov.sg/rss/Printers_&_Scanners-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Printers_&_Scanners-CREATE_AWD_FEED.xml
+    h. Personal Digital Assistants:
+      bo: https://www.gebiz.gov.sg/rss/Personal_Digital_Assistants-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Personal_Digital_Assistants-CREATE_AWD_FEED.xml
+    i. Softwares & Licences:
+      bo: https://www.gebiz.gov.sg/rss/Softwares_&_Licences-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Softwares_&_Licences-CREATE_AWD_FEED.xml
+    j. IT Services & Software Development:
+      bo: https://www.gebiz.gov.sg/rss/IT_Services_&_Software_Development-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/IT_Services_&_Software_Development-CREATE_AWD_FEED.xml
+    k. Others:
+      bo: https://www.gebiz.gov.sg/rss/OthersIT&Telecommunication-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/OthersIT&Telecommunication-CREATE_AWD_FEED.xml
+  8. Workshop Equipment and Services:
+    a. Workshop Machinery, DIY Machinery & Supplies:
+      bo: https://www.gebiz.gov.sg/rss/Workshop_Machinery,_DIY_Machinery_&_Supplies-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Workshop_Machinery,_DIY_Machinery_&_Supplies-CREATE_AWD_FEED.xml
+    b. Workshop Tools, DIY Tools & Accessories:
+      bo: https://www.gebiz.gov.sg/rss/Workshop_Tools,_DIY_Tools_&_Accessories-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Workshop_Tools,_DIY_Tools_&_Accessories-CREATE_AWD_FEED.xml
+    c. Workshop Tools Maintenance:
+      bo: https://www.gebiz.gov.sg/rss/Workshop_Tools_Maintenance-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Workshop_Tools_Maintenance-CREATE_AWD_FEED.xml
+    d. Workshop Furniture:
+      bo: https://www.gebiz.gov.sg/rss/Workshop_Furniture-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Workshop_Furniture-CREATE_AWD_FEED.xml
+  9. Dental, Medical & Laboratory:
+    a. Equipment Testing & Calibration Services:
+      bo: https://www.gebiz.gov.sg/rss/Equipment_Testing_&_Calibration_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Equipment_Testing_&_Calibration_Services-CREATE_AWD_FEED.xml
+    b. Laboratory Equipment & Supplies:
+      bo: https://www.gebiz.gov.sg/rss/Laboratory_Equipment_&_Supplies-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Laboratory_Equipment_&_Supplies-CREATE_AWD_FEED.xml
+    c. Others:
+      bo: https://www.gebiz.gov.sg/rss/OthersDental,_Medical_&_Laboratory-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/OthersDental,_Medical_&_Laboratory-CREATE_AWD_FEED.xml
+  10. Furniture, Office Equipment & Audio-Visual:
+    a. Furniture:
+      bo: https://www.gebiz.gov.sg/rss/Furniture-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Furniture-CREATE_AWD_FEED.xml
+    b. AV Equipment, Photographic Equipment & Accessories:
+      bo: https://www.gebiz.gov.sg/rss/AV_Equipment,_Photographic_Equipment_&_Accessories-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/AV_Equipment,_Photographic_Equipment_&_Accessories-CREATE_AWD_FEED.xml
+    c. Electrical Appliances & Supplies:
+      bo: https://www.gebiz.gov.sg/rss/Electrical_Appliances_&_Supplies-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Electrical_Appliances_&_Supplies-CREATE_AWD_FEED.xml
+    d. Office Equipment:
+      bo: https://www.gebiz.gov.sg/rss/Office_Equipment-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Office_Equipment-CREATE_AWD_FEED.xml
+    e. Copiers:
+      bo: https://www.gebiz.gov.sg/rss/Copiers-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Copiers-CREATE_AWD_FEED.xml
+    f. Containers & Storage Equipment:
+      bo: https://www.gebiz.gov.sg/rss/Containers_&_Storage_Equipment-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Containers_&_Storage_Equipment-CREATE_AWD_FEED.xml
+    g. Others:
+      bo: https://www.gebiz.gov.sg/rss/OthersFurniture,_Office_Equipment_&_Audio-Visual-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/OthersFurniture,_Office_Equipment_&_Audio-Visual-CREATE_AWD_FEED.xml
+  11. Event Organising, Food & Beverages:
+    a. Pantry Supplies:
+      bo: https://www.gebiz.gov.sg/rss/Pantry_Supplies-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Pantry_Supplies-CREATE_AWD_FEED.xml
+    b. Outdoor Event Facilities:
+      bo: https://www.gebiz.gov.sg/rss/Outdoor_Event_Facilities-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Outdoor_Event_Facilities-CREATE_AWD_FEED.xml
+    c. Event Organising:
+      bo: https://www.gebiz.gov.sg/rss/Event_Organising-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Event_Organising-CREATE_AWD_FEED.xml
+    d. Meeting Venues & Facilities:
+      bo: https://www.gebiz.gov.sg/rss/Meeting_Venues_&_Facilities-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Meeting_Venues_&_Facilities-CREATE_AWD_FEED.xml
+    e. Catering Services:
+      bo: https://www.gebiz.gov.sg/rss/Catering_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Catering_Services-CREATE_AWD_FEED.xml
+    f. Accommodation:
+      bo: https://www.gebiz.gov.sg/rss/Accommodation-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Accommodation-CREATE_AWD_FEED.xml
+    g. Restaurants:
+      bo: https://www.gebiz.gov.sg/rss/Restaurants-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Restaurants-CREATE_AWD_FEED.xml
+  12. Facilities Management:
+    a. Security Services:
+      bo: https://www.gebiz.gov.sg/rss/Security_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Security_Services-CREATE_AWD_FEED.xml
+    b. Management Services:
+      bo: https://www.gebiz.gov.sg/rss/Management_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Management_Services-CREATE_AWD_FEED.xml
+    c. Cleaning Services:
+      bo: https://www.gebiz.gov.sg/rss/Cleaning_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Cleaning_Services-CREATE_AWD_FEED.xml
+    d. Pest Management Services:
+      bo: https://www.gebiz.gov.sg/rss/Pest_Management_Services-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Pest_Management_Services-CREATE_AWD_FEED.xml
+    e. Horticulture Works:
+      bo: https://www.gebiz.gov.sg/rss/Horticulture_Works-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Horticulture_Works-CREATE_AWD_FEED.xml
+    f. Building, M&E Maintenance:
+      bo: https://www.gebiz.gov.sg/rss/Building,_M&E_Maintenance-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Building,_M&E_Maintenance-CREATE_AWD_FEED.xml
+    g. Fire Fighting Equipment & Maintenance:
+      bo: https://www.gebiz.gov.sg/rss/Fire_Fighting_Equipment_&_Maintenance-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Fire_Fighting_Equipment_&_Maintenance-CREATE_AWD_FEED.xml
+    h. Security Equipment & Supplies:
+      bo: https://www.gebiz.gov.sg/rss/Security_Equipment_&_Supplies-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Security_Equipment_&_Supplies-CREATE_AWD_FEED.xml
+    i. Cleaning Equipment & Supplies:
+      bo: https://www.gebiz.gov.sg/rss/Cleaning_Equipment_&_Supplies-CREATE_BO_FEED.xml
+      awd: https://www.gebiz.gov.sg/rss/Cleaning_Equipment_&_Supplies-CREATE_AWD_FEED.xml

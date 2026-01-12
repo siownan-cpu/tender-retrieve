@@ -1,0 +1,25 @@
+
+include_keywords:
+  - hospital
+  - healthcare
+  - rehabilitation
+  - biomechanics
+  - laboratory
+  - medical
+  - physiotherapy
+  - sports science
+  - motion capture
+  - electromyography
+  - cpet
+exclude_keywords:
+  - construction
+agencies_preferred:
+  - National Healthcare Group
+  - Jurong Health
+  - Tan Tock Seng Hospital
+  - NUH
+  - SingHealth
+  - CGH
+  - NUS
+  - NTU
+  - Sport Singapore

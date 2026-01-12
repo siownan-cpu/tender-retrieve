@@ -1,0 +1,32 @@
+{
+  "name": "BMEC Fetch",
+  "feed_type": "bo",
+  "selected_feeds": [
+    "ENABLE_TENDERBOARD",
+    "ENABLE_JPMC",
+    "https://www.gebiz.gov.sg/rss/OthersOthers-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Laundry_Services-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Professional_Services-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Safety_&_Rescue_Equipment-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/OthersMiscellaneous-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/ShipBuilding,_Marine_Supplies_&_Services-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Sports_&_Recreational_Equipment-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Equipment_Testing_&_Calibration_Services-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Laboratory_Equipment_&_Supplies-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/OthersDental,_Medical_&_Laboratory-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Furniture-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/AV_Equipment,_Photographic_Equipment_&_Accessories-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Electrical_Appliances_&_Supplies-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Office_Equipment-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Management_Services-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Cleaning_Services-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Building,_M&E_Maintenance-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Fire_Fighting_Equipment_&_Maintenance-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Security_Equipment_&_Supplies-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Cleaning_Equipment_&_Supplies-CREATE_BO_FEED.xml",
+    "SPECIAL:ARIBA",
+    "SPECIAL:SESAMI"
+  ],
+  "created": "2026-01-02T09:51:24.624685",
+  "count": 24
+}

@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: tender-webapp
+    runtime: docker
+    plan: free # Optional, defaults to starter but free is available
+    envVars:
+      - key: PORT
+        value: 8000

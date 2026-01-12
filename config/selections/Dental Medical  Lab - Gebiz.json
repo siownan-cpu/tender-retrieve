@@ -1,0 +1,11 @@
+{
+  "name": "Dental, Medical & Lab - Gebiz",
+  "feed_type": "bo",
+  "selected_feeds": [
+    "https://www.gebiz.gov.sg/rss/Equipment_Testing_&_Calibration_Services-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/Laboratory_Equipment_&_Supplies-CREATE_BO_FEED.xml",
+    "https://www.gebiz.gov.sg/rss/OthersDental,_Medical_&_Laboratory-CREATE_BO_FEED.xml"
+  ],
+  "created": "2026-01-01T00:47:41.098918",
+  "count": 3
+}
